@@ -1,0 +1,21 @@
+DELIMITER //
+CREATE PROCEDURE getAllEmployees()
+BEGIN
+	insert into employee values(109,'raju',80000);
+	update employee set salary = 22000 where eid = 101;	
+
+END  //
+
+
+call getAllEmployees();
+
+
+
+DELIMITER //
+CREATE PROCEDURE getEmp()
+BEGIN
+
+	INSERT INTO EMPLOYEE VALUES(999,'imran',65000);
+
+END //
+

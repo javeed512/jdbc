@@ -1,0 +1,93 @@
+
+mysql> CREATE DATABASE  empdb;
+Query OK, 1 row affected (0.26 sec)
+
+mysql> connect empdb;
+Connection id:    11
+Current database: empdb
+
+mysql> show  databases;
++--------------------+
+| Database           |
++--------------------+
+| ecommerce          |
+| empdb              |
+| information_schema |
+| mydb               |
+| mysql              |
+| nse                |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| testdb             |
+| world              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use empdb;
+Database changed
+mysql> CREATE TABLE EMPLOYEE(eid integer primary key , ename varchar(15), salary decimal);
+Query OK, 0 rows affected (0.99 sec)
+
+mysql> desc employee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| eid    | int           | NO   | PRI | NULL    |       |
+| ename  | varchar(15)   | YES  |     | NULL    |       |
+| salary | decimal(10,0) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+3 rows in set (0.10 sec)
+
+mysql> select * from employee;
+Empty set (0.02 sec)
+
+mysql> insert into employee(eid,ename,salary) values(111,'javeed',50000);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from employee;
++-----+--------+--------+
+| eid | ename  | salary |
++-----+--------+--------+
+| 111 | javeed |  50000 |
++-----+--------+--------+
+1 row in set (0.02 sec)
+
+mysql> insert into employee(eid,ename,salary) values(112,'tom',90000);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from employee;
++-----+--------+--------+
+| eid | ename  | salary |
++-----+--------+--------+
+| 111 | javeed |  50000 |
+| 112 | tom    |  90000 |
++-----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> update employee  set  salary = 80000 where  eid = 111;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-----+--------+--------+
+| eid | ename  | salary |
++-----+--------+--------+
+| 111 | javeed |  80000 |
+| 112 | tom    |  90000 |
++-----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> delete from employee where eid =112;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from employee;
++-----+--------+--------+
+| eid | ename  | salary |
++-----+--------+--------+
+| 111 | javeed |  80000 |
++-----+--------+--------+
+1 row in set (0.01 sec)
+
+mysql>
